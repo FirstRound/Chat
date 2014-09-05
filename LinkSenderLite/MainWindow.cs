@@ -233,7 +233,7 @@ namespace Chat
                 Message message = new Message();
                 message.Text = MessageField.Text.ToString();
                 message.SenderID = _admin_id;
-                message.Date = DateTime.Now;
+                message.Date = DateTime.Now.ToUniversalTime();
                 _chat.sendMessage(message);
                 _messages = _chat.getMessages();
                 MessageField.Text = "";
