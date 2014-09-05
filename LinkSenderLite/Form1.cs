@@ -9,10 +9,11 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using System.Threading;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace Chat
 {
-    public partial class Autorithation : Form
+    public partial class Autorithation : KryptonForm
     {
         Admin admin;
 
@@ -34,12 +35,12 @@ namespace Chat
             }
             return true;
         }
-        
-        private void SignUpBtn_Click(object sender, EventArgs e)
+
+        private void SignInBtn_Click(object sender, EventArgs e)
         {
-            SignUpBtn.Hide();
+            SignInBtn.Hide();
             progressBar1.Visible = true;
-            if(signIn(LoginBox.Text, PasswordBox.Text))
+            if (signIn(LoginBox.Text, PasswordBox.Text))
             {
                 if (!Directory.Exists(Application.StartupPath + "/files/"))
                     System.IO.Directory.CreateDirectory(Application.StartupPath + "/files/");
@@ -48,13 +49,15 @@ namespace Chat
                 main.Show();
 
             }
-            else 
+            else
             {
                 progressBar1.Visible = false;
-                SignUpBtn.Show();
+                SignInBtn.Show();
                 PasswordBox.Text = "";
             }
         }
+
+
 
         private void PasswordBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -76,7 +79,7 @@ namespace Chat
 
         private void _signInBtn()
         {
-            SignUpBtn.Hide();
+            SignInBtn.Hide();
             progressBar1.Visible = true;
             if (signIn(LoginBox.Text, PasswordBox.Text))
             {
@@ -90,9 +93,11 @@ namespace Chat
             else
             {
                 progressBar1.Visible = false;
-                SignUpBtn.Show();
+                SignInBtn.Show();
                 PasswordBox.Text = "";
             }
         }
+
+        
     }
 }

@@ -30,22 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.Friends = new System.Windows.Forms.ListBox();
-            this.MessageField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MessageTab = new System.Windows.Forms.TabControl();
             this.tabLinkIn = new System.Windows.Forms.TabPage();
             this.MessageView = new System.Windows.Forms.ListBox();
-            this.SendBtn = new System.Windows.Forms.Button();
             this.addFriendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFriendToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MessageField = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.SendBtn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.MessageTab.SuspendLayout();
             this.tabLinkIn.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Friends
@@ -61,15 +59,6 @@
             this.Friends.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.Friends_DrawItem);
             this.Friends.SelectedIndexChanged += new System.EventHandler(this.Friends_SelectedIndexChanged);
             // 
-            // MessageField
-            // 
-            this.MessageField.Location = new System.Drawing.Point(124, 410);
-            this.MessageField.Name = "MessageField";
-            this.MessageField.Size = new System.Drawing.Size(476, 22);
-            this.MessageField.TabIndex = 3;
-            this.MessageField.TextChanged += new System.EventHandler(this.LinkField_TextChanged);
-            this.MessageField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MessageField_KeyPress);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -83,7 +72,6 @@
             // MessageTab
             // 
             this.MessageTab.Controls.Add(this.tabLinkIn);
-            this.MessageTab.Controls.Add(this.tabPage1);
             this.MessageTab.Location = new System.Drawing.Point(124, 31);
             this.MessageTab.Name = "MessageTab";
             this.MessageTab.SelectedIndex = 0;
@@ -114,56 +102,43 @@
             this.MessageView.TabIndex = 0;
             this.MessageView.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.MessageView_DrawItem);
             // 
-            // SendBtn
-            // 
-            this.SendBtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.SendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SendBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SendBtn.Location = new System.Drawing.Point(513, 438);
-            this.SendBtn.Name = "SendBtn";
-            this.SendBtn.Size = new System.Drawing.Size(87, 29);
-            this.SendBtn.TabIndex = 6;
-            this.SendBtn.Text = "Send";
-            this.SendBtn.UseVisualStyleBackColor = false;
-            this.SendBtn.Click += new System.EventHandler(this.SendBtn_Click);
-            // 
             // addFriendToolStripMenuItem
             // 
             this.addFriendToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addFriendToolStripMenuItem1,
             this.manageToolStripMenuItem});
             this.addFriendToolStripMenuItem.Name = "addFriendToolStripMenuItem";
-            this.addFriendToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
+            this.addFriendToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.addFriendToolStripMenuItem.Text = "Settings";
             // 
             // addFriendToolStripMenuItem1
             // 
             this.addFriendToolStripMenuItem1.Name = "addFriendToolStripMenuItem1";
-            this.addFriendToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.addFriendToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
             this.addFriendToolStripMenuItem1.Text = "Add friend";
             // 
             // manageToolStripMenuItem
             // 
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.manageToolStripMenuItem.Text = "Manage";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addFriendToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(616, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(616, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -177,15 +152,23 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Friends:";
             // 
-            // tabPage1
+            // MessageField
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(472, 327);
-            this.tabPage1.TabIndex = 1;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.MessageField.Location = new System.Drawing.Point(124, 408);
+            this.MessageField.Name = "MessageField";
+            this.MessageField.Size = new System.Drawing.Size(476, 24);
+            this.MessageField.TabIndex = 8;
+            this.MessageField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MessageField_KeyPress);
+            // 
+            // SendBtn
+            // 
+            this.SendBtn.Location = new System.Drawing.Point(484, 438);
+            this.SendBtn.Name = "SendBtn";
+            this.SendBtn.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.SendBtn.Size = new System.Drawing.Size(116, 29);
+            this.SendBtn.TabIndex = 9;
+            this.SendBtn.Values.Text = "Send";
+            this.SendBtn.Click += new System.EventHandler(this.SendBtn_Click);
             // 
             // MainWindow
             // 
@@ -193,13 +176,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(616, 479);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.SendBtn);
+            this.Controls.Add(this.MessageField);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.MessageTab);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.MessageField);
             this.Controls.Add(this.Friends);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Custom1;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -220,11 +205,9 @@
         #endregion
 
         private System.Windows.Forms.ListBox Friends;
-        private System.Windows.Forms.TextBox MessageField;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl MessageTab;
         private System.Windows.Forms.TabPage tabLinkIn;
-        private System.Windows.Forms.Button SendBtn;
         private System.Windows.Forms.ToolStripMenuItem addFriendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addFriendToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
@@ -232,6 +215,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ListBox MessageView;
-        private System.Windows.Forms.TabPage tabPage1;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MessageField;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton SendBtn;
     }
 }

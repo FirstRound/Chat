@@ -12,10 +12,11 @@ using BytesRoad.Net.Ftp;
 using BytesRoad.Net.Sockets;
 using System.Diagnostics;
 using System.Reflection;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace Chat
 {
-    public partial class MainWindow : Form
+    public partial class MainWindow : KryptonForm
     {
         private List<Message> _messages = new List<Message>();
         private List<User> _friends = new List<User>();
@@ -97,12 +98,6 @@ namespace Chat
 
         }
 
-        private void SendBtn_Click(object sender, EventArgs e)
-        {
-            //добавить в список отправленных
-            // отправить на сервер
-            _sendMessage();
-        }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -129,14 +124,19 @@ namespace Chat
             System.Threading.SynchronizationContext.Current.Post(delegate { Application.Exit(); }, null);
         }
 
-        private void selectLink_Click(object sender, EventArgs e)
+
+        private void MessageField_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)13)
+            {
+                _sendMessage();
+                e.Handled = true;
+            }
         }
 
-        private void RefreshBtn_Click(object sender, EventArgs e)
+        private void SendBtn_Click(object sender, EventArgs e)
         {
-
-            _chat.updateNewMessages();
+            _sendMessage();
         }
 
         private void updateInputMessages()
@@ -222,14 +222,7 @@ namespace Chat
         }
      }
 
-        private void MessageField_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                _sendMessage();
-                e.Handled = true;
-            }
-        }
+
 
         // BEGIN PRIVATE METHODS
 
