@@ -42,6 +42,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.MessageTab.SuspendLayout();
             this.tabLinkIn.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -82,6 +83,7 @@
             // MessageTab
             // 
             this.MessageTab.Controls.Add(this.tabLinkIn);
+            this.MessageTab.Controls.Add(this.tabPage1);
             this.MessageTab.Location = new System.Drawing.Point(124, 31);
             this.MessageTab.Name = "MessageTab";
             this.MessageTab.SelectedIndex = 0;
@@ -175,6 +177,16 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Friends:";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(472, 327);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,5 +232,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ListBox MessageView;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
