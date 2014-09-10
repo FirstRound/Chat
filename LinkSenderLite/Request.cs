@@ -14,7 +14,7 @@ namespace Chat
         // END PRIVATE VARS
 
         // BEGIN PUBLIC METHODS
-        public Request(Admin admin, String URL="")
+        public Request(Admin admin, String URL = "")
         {
             _admin = admin;
             _url = URL;
@@ -34,11 +34,11 @@ namespace Chat
 
         public bool sendMessage(Message message)
         {
-            String data = "text=" + message.Text + "&from_id=" + _admin.Id + "&to_id=" 
-                + message.AddresseeID+"&dialog_id=" + message.DialogID + "&date=" + message.UnixDate;
+            String data = "text=" + message.Text + "&from_id=" + _admin.Id + "&to_id="
+                + message.AddresseeID + "&dialog_id=" + message.DialogID + "&date=" + message.UnixDate;
             String action = "&action=send_message";
-            String token = "&token="+_admin.Token;
-            data += action+token;
+            String token = "&token=" + _admin.Token;
+            data += action + token;
             String answer = sendPost(data);
             if (answer != "")
                 return true;
@@ -51,7 +51,7 @@ namespace Chat
             String data = "user_id=" + _admin.Id;
             String action = "&action=get_friends";
             String token = "&token=" + _admin.Token;
-            data += action+token;
+            data += action + token;
             String answer = sendPost(data);
             return _parseFriendsList(answer);
         }
@@ -61,7 +61,7 @@ namespace Chat
             String data = "login=" + _admin.Name + "&password=" + _admin.Password;
             String action = "&action=authorization";
             String token = "&token=" + _admin.Token;
-            data += action+token;
+            data += action + token;
             String answer = sendPost(data);
             if (answer != "404")
             {
@@ -82,10 +82,10 @@ namespace Chat
 
         public List<Message> getNewMessages()
         {
-            String data = "last_message_time="+_admin.LastMessageTime+"&admin_id=" + _admin.Id;
+            String data = "last_message_time=" + _admin.LastMessageTime + "&admin_id=" + _admin.Id;
             String action = "&action=get_new_messages";
             String token = "&token=" + _admin.Token;
-            data += action+token;
+            data += action + token;
             String answer = sendPost(data);
             List<Message> list = null;
             if (answer != "404")
@@ -120,7 +120,7 @@ namespace Chat
                     list.Add(m);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

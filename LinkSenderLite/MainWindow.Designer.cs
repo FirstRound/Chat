@@ -34,6 +34,8 @@
             this.MessageTab = new System.Windows.Forms.TabControl();
             this.tabLinkIn = new System.Windows.Forms.TabPage();
             this.MessageView = new System.Windows.Forms.ListBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MessageBoxControl = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             this.addFriendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFriendToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +46,8 @@
             this.SendBtn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.MessageTab.SuspendLayout();
             this.tabLinkIn.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Friends
@@ -72,6 +76,7 @@
             // MessageTab
             // 
             this.MessageTab.Controls.Add(this.tabLinkIn);
+            this.MessageTab.Controls.Add(this.tabPage1);
             this.MessageTab.Location = new System.Drawing.Point(124, 31);
             this.MessageTab.Name = "MessageTab";
             this.MessageTab.SelectedIndex = 0;
@@ -102,6 +107,26 @@
             this.MessageView.TabIndex = 0;
             this.MessageView.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.MessageView_DrawItem);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.MessageBoxControl);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(472, 327);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // MessageBoxControl
+            // 
+            this.MessageBoxControl.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlCustom1;
+            this.MessageBoxControl.BorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlCustom1;
+            this.MessageBoxControl.Location = new System.Drawing.Point(0, 0);
+            this.MessageBoxControl.Name = "MessageBoxControl";
+            this.MessageBoxControl.Size = new System.Drawing.Size(472, 327);
+            this.MessageBoxControl.TabIndex = 0;
+            // 
             // addFriendToolStripMenuItem
             // 
             this.addFriendToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -114,13 +139,13 @@
             // addFriendToolStripMenuItem1
             // 
             this.addFriendToolStripMenuItem1.Name = "addFriendToolStripMenuItem1";
-            this.addFriendToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
+            this.addFriendToolStripMenuItem1.Size = new System.Drawing.Size(149, 24);
             this.addFriendToolStripMenuItem1.Text = "Add friend";
             // 
             // manageToolStripMenuItem
             // 
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
             this.manageToolStripMenuItem.Text = "Manage";
             // 
             // aboutToolStripMenuItem
@@ -184,6 +209,7 @@
             this.Controls.Add(this.Friends);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Custom1;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -195,6 +221,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.MessageTab.ResumeLayout(false);
             this.tabLinkIn.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -217,5 +244,7 @@
         public System.Windows.Forms.ListBox MessageView;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MessageField;
         private ComponentFactory.Krypton.Toolkit.KryptonButton SendBtn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private ComponentFactory.Krypton.Toolkit.KryptonListBox MessageBoxControl;
     }
 }

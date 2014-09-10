@@ -32,7 +32,6 @@ namespace Chat
             _friends = _chat.getFriends();
             _chat.loadMessageHistory();
             _setListBoxSource();
-            //MessageView.
             Thread messageUpdator = new Thread(updateInputMessages);
             messageUpdator.IsBackground = true;
             messageUpdator.Start();
@@ -63,9 +62,11 @@ namespace Chat
                 MessageView.BeginUpdate();
                 int padding = 0;
                 MessageView.Items.Clear();
+                MessageBoxControl.Items.Clear();
                 for (int i = padding; i < _messages.Count; i++)
                 {
                     MessageView.Items.Add(_messages[i].Text);
+                    MessageBoxControl.Items.Add(_messages[i].Text);
                 }
                 MessageView.EndUpdate();
             }
